@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI星伙社区</title>
+    <!--
+      这是 GitHub Pages 的 404 兜底页（发布时由 deploy/publish-gh.mjs 生成，
+      /xinghuo-portal/ 会被替换成站点前缀，例如 /xinghuo/）。
+
+      GitHub Pages 对未知路径一律返回这个文件，而本站是纯前端路由，
+      所以它只做一件事：把用户真正想去的路径扣下来，跳回站点根，
+      由 index.html 里的还原逻辑接回前端路由。
+    -->
+    <script>
+      (function () {
+        var base = "/xinghuo-portal/";
+        try {
+          sessionStorage.setItem(
+            "xinghuo.redirect",
+            location.pathname + location.search + location.hash,
+          );
+        } catch (e) {
+          /* sessionStorage 不可用时退化为直接回首页 */
+        }
+        location.replace(base + "?r=" + Date.now());
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
